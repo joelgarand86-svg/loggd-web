@@ -9,7 +9,6 @@
     h1 { font-size: 1.8em; margin-bottom: 0.2em; }
     h2 { font-size: 1.15em; margin-top: 1.8em; }
     .stand { color: #6e6e73; font-size: 0.9em; }
-    .offen { background: #fff3cd; padding: 0 3px; }
     nav a { margin-right: 14px; }
   </style>
 </head>
@@ -17,14 +16,14 @@
   <nav><a href="../">loggd</a><a href="../agb/">AGB</a><a href="../datenschutz/">Datenschutz</a></nav>
 
   <h1>Datenschutzerklärung</h1>
-  <p class="stand">Stand: November 2026 · Entwurf, vor Veröffentlichung zu prüfen</p>
+  <p class="stand">Stand: November 2026</p>
 
   <h2>1. Verantwortlicher</h2>
   <p>
     Joel Garand<br />
     Burggrafenstraße 1<br />
     40545 Düsseldorf<br />
-    E-Mail: <a href="mailto:support@loggd.de">support@loggd.de</a> <span class="offen">[PRÜFEN: Postfach muss eingerichtet sein]</span>
+    E-Mail: <a href="mailto:support@loggd.de">support@loggd.de</a>
   </p>
 
   <h2>2. Grundsätzliches</h2>
@@ -43,12 +42,14 @@
     Die Kalender-Synchronisation schreibt nur dann Schichten in deinen Apple-Kalender, wenn du sie aktivierst.
     Benachrichtigungen sind rein lokal. Face ID/Touch ID dient ausschließlich dem Sperren der App auf deinem Gerät.
     Der Sichtschutz nutzt den Bewegungssensor deines Geräts nur lokal; es werden keine Bewegungsdaten übertragen.
+    Optionale Arbeitsort-Erinnerungen (Geofencing) nutzen deinen Standort ausschließlich lokal auf deinem Gerät; Standortdaten werden nicht an eigene Server übertragen.
   </p>
 
-  <h3>b) iCloud-Sicherung (nur bei Anmeldung mit Apple)</h3>
+  <h3>b) Anmeldung mit Apple &amp; iCloud-Sicherung</h3>
   <p>
     Wenn du dich mit deiner Apple-ID anmeldest, legt loggd eine Sicherungsdatei im iCloud-Konto deiner Apple-ID ab.
-    Diese Datei wird von Apple verarbeitet. Der Betreiber hat keinen Zugriff darauf.
+    Diese Datei wird von Apple verarbeitet; der Betreiber hat keinen Zugriff darauf.
+    Um bei einer Kontolöschung deine Apple-Anmeldung vollständig bei Apple widerrufen zu können, tauscht bzw. widerruft die App das Apple-Token über eine zustandslose Supabase Edge Function (Hosting-Standort London, Vereinigtes Königreich, AWS-Region eu-west-2), die das Token unmittelbar an Apple weiterleitet und keinerlei Nutzerdaten speichert.
     Im Modus „Lokal“ wird nichts in die iCloud geschrieben.
   </p>
 
@@ -70,21 +71,26 @@
     Schichten, Finanzen und Profilangaben werden dabei nicht übermittelt.
   </p>
 
-  <h3>f) Feedback-Meldungen</h3>
+  <h3>f) Feedback-Meldungen und Roadmap-Stimmen</h3>
   <p>
-    Wenn du eine Meldung (Fehler oder Wunsch) absendest, werden folgende Daten an den Dienst Supabase übermittelt
-    (Supabase Inc., Hosting-Standort <span class="offen">[PRÜFEN: Region des Supabase-Projekts]</span>):
+    Wenn du eine Meldung (Fehler, Feedback oder Idee) absendest, werden folgende Daten an den Dienst Supabase übermittelt
+    (Supabase Inc., Hosting-Standort London, Vereinigtes Königreich, AWS-Region eu-west-2; Datentransfer auf Grundlage des Angemessenheitsbeschlusses der EU-Kommission nach Art. 45 DSGVO):
   </p>
   <ul>
-    <li>Titel bzw. Text deiner Meldung und die gewählte Kategorie,</li>
+    <li>Text deiner Meldung und die gewählte Kategorie,</li>
     <li>Geräteangaben: Gerätemodell, iOS-Version und App-Version,</li>
-    <li>eine zufällige Geräte-ID, die die App auf deinem Gerät erzeugt (keine Apple-ID, keine Telefonnummer),</li>
+    <li>eine zufällige Geräte-ID aus der iOS-Keychain deines Geräts (keine Apple-ID, keine Telefonnummer),</li>
     <li>optional ein Screenshot, den du mitsendest.</li>
   </ul>
   <p>
-    Der Betreiber sieht diese Meldungen und kann darauf antworten. Die Antwort wird dir in der App angezeigt.
-    Schichten, Verdienste und Finanzdaten werden mit einer Meldung nicht übertragen. Wenn du eine Meldung nicht senden möchtest, sende sie einfach nicht ab.
-    Löschwünsche für gesendete Meldungen richte bitte an support@loggd.de. <span class="offen">[PRÜFEN: Löschprozess und Speicherdauer festlegen]</span>
+    Wenn du in der Roadmap für Funktionen abstimmst, wird deine Stimme zusammen mit einer separaten zufälligen Geräte-ID (ebenfalls in der iOS-Keychain) bei Supabase gespeichert, damit pro Gerät nur einmal abgestimmt werden kann.
+  </p>
+  <p>
+    Der Betreiber sieht gesendete Meldungen und kann darauf antworten; die Antwort wird dir in der App angezeigt.
+    Schichten, Verdienste und Finanzdaten werden dabei nicht übertragen. Wenn du keine Daten übermitteln möchtest, sende keine Meldung ab und stimme nicht in der Roadmap ab.
+  </p>
+  <p>
+    Wenn du in der App unter <em>Optionen → Konto &amp; alle Daten löschen</em> deine Daten löschst, werden deine von diesem Gerät gesendeten Feedback-Meldungen (einschließlich Antworten) sowie deine Roadmap-Stimmen automatisch bei Supabase gelöscht. Unabhängig davon kannst du jederzeit die Löschung gesendeter Meldungen oder Screenshots per E-Mail an <a href="mailto:support@loggd.de">support@loggd.de</a> verlangen. Abgeschlossene Feedback-Meldungen und zugehörige Screenshots werden spätestens 12 Monate nach Abschluss des Tickets gelöscht.
   </p>
 
   <h2>4. Weitergabe an Dritte</h2>
@@ -108,8 +114,9 @@
 
   <h2>7. Speicherdauer und Löschung</h2>
   <p>
-    Lokale Daten bleiben auf deinem Gerät, bis du sie löschst oder die App entfernst.
-    Die iCloud-Sicherung kannst du in deinem Apple-Konto verwalten bzw. durch Abmelden in der App entfernen.
+    Lokale Daten bleiben auf deinem Gerät, bis du sie in der App löschst oder die App entfernst.
+    Über <em>Optionen → Konto &amp; alle Daten löschen</em> werden alle lokalen Daten, die iCloud-Sicherung (sofern angemeldet), deine von diesem Gerät gesendeten Feedback-Meldungen und Roadmap-Stimmen bei Supabase sowie der Apple-Anmelde-Token bei Apple widerrufen bzw. gelöscht.
+    Aktive Abonnements über Apple werden dadurch nicht gekündigt und müssen über die iOS-Einstellungen verwaltet werden.
   </p>
 
   <h2>8. Änderungen</h2>
